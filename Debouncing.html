@@ -1,0 +1,29 @@
+<html>
+  <body>
+  <label>Test for deboucing</label>
+  <input type="text" value="username" onkeyup="betterFunction()">
+  <script>
+      /* https://www.youtube.com/watch?v=Zo-6_qx8uxg */
+    let counter = 0;
+    const getData = () => {
+        console.log('I was called',counter++);
+    }
+    
+    const doSomeMagic = function (fn,delay){
+     let timer;
+     return function () {
+     let context = this;
+     args = arguments;
+     clearTimeout(timer);
+     timer =    setTimeout(() => {
+        fn.apply(context,args)
+        },delay)
+     }
+    }
+    
+    const betterFunction = doSomeMagic(getData, 1000);
+    
+    </script>
+  </body>
+</html>
+
