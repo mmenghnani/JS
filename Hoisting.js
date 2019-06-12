@@ -9,11 +9,13 @@
 
 // var name = "Baggins";
 // (function () {
-//     // Outputs: Original name was undefined "because name is defined again in the inner scope. 
-//     //If it was not there then it would have printed Original name was Baggins"
+
+// Outputs: Original name was undefined "because name is defined again in the inner scope. 
+// If it was not there then it would have printed Original name was Baggins"
 //     console.log("Original name was " + name);
 //     var name = "Underhill";
-//     // Outputs: "New name is Underhill"
+
+// Outputs: "New name is Underhill"
 //     console.log("New name is " + name);
 // })();
 
