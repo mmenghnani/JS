@@ -16,13 +16,21 @@
 // Pure functions - A pure function is a function where the return value is only determined by its arguments
 // without any side effects.
 
-let dragon = 
-name =>
-    size => 
-        element =>
-                name + ' is a ' + 
-                size + ' dragon that breathes ' + 
-                element + '!';
+// let dragon = 
+// name =>
+//     size => 
+//         element =>
+//                 name + ' is a ' + 
+//                 size + ' dragon that breathes ' + 
+//                 element + '!';
 
+
+let dragon = function(name){
+    return function(size){
+        return function(element){
+            return name + ' ' + size + ' ' + element;
+        }
+    }
+}
 
 console.log(dragon('superman')('large')('nitrogen'));

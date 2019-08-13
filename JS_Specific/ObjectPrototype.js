@@ -45,3 +45,5 @@ first example below, the value of i will be same.
 //           console.log(i);
 //       }, i*1000);
 //   }
+
+// Object design patterns : https://medium.com/@severinperez/javascript-weekly-fundamental-object-design-patterns-31453f68427f

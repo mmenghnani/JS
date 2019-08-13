@@ -8,18 +8,18 @@ var obj = {
     num : 2
 }
 
-var addToThis = function(a){
-    return this.num + a
+var addToThis = function(a,b){
+    return this.num + a + b
 }
 
 //Functionname.call(context, arguments)
 
-console.log(addToThis.call(obj, 5))
+console.log(addToThis.call(obj, 5, 7))
 
 // For apply, the arguments are passed as an array
-console.log(addToThis.apply(obj, [5]))
+console.log(addToThis.apply(obj, [5,9]))
 
 
 //bound
 var bound = addToThis.bind(obj);
-console.log(bound(5));
+console.log(bound(5,8));
