@@ -60,6 +60,7 @@ class LinkedList {
     let curr = this.head;
     this.head = newNode;
     newNode.next = curr;
+    this.length++;
   }
 
   shift() {
@@ -70,17 +71,78 @@ class LinkedList {
   }
 
   get(position) {
-    let i = 0;
+    if(position < 0) return null;
+    let counter = 0;
     let curr = this.head;
-    while (curr.next) {
-      if (i === position) {
-        console.log(`Value of the node at ${position} is: ` + curr.val);
+    while (curr) {
+      if (counter === position) {
+        console.log(`Value of the node at position ${position} is: ` + curr.val);
         return;
       }
       curr = curr.next;
-      i++;
+      counter++;
+    }
+    console.log(`Invalid position`);
+    return 0;
+  }
+
+  set(position,value){
+    if(position < 0) return null;
+    let counter = 0;
+    let curr = this.head;
+    while(curr){
+      if(counter === position){
+        curr.val = value;
+        console.log(`updated value of node at position ${position} is ${value}`);
+        return;
+      }
+      curr = curr.next;
+      counter++;
     }
   }
+
+  insert(position,value){
+    if(position < 0) return null;
+    let counter = 0;
+    let curr = this.head;
+     while(curr){
+       if(counter === position){
+         let newNode = new Node(value);
+         let next = curr.next;
+         curr.next = newNode;
+         newNode.next = next;
+         if(!newNode.next){
+           this.tail = newNode;
+         }
+        // console.log(`inserted successfully!`)
+         this.length++;
+       }
+       curr = curr.next;
+       counter++;
+     }
+  }
+
+  remove(position){
+    if(position < 0 || position > this.length) {  console.log(`invalid removal`); return null } ;
+    let curr = this.head;
+    let prev = null;
+    let counter = 0;
+    while(curr){
+      if(counter === position){
+        prev.next = curr.next;
+        if(curr.next === null){
+          this.tail = prev;
+        }
+        console.log(`Removed successfully!`);
+        this.length--;
+        return;
+      }
+      prev = curr;
+      curr = curr.next;
+      counter++;
+    }
+  }
+
 
   // remove(val){
   //     if(!val) return 'null';
@@ -110,6 +172,11 @@ list.push(10);
 list.pop();
 list.shift();
 list.unshift(3);
+list.get(12);
+// list.traverse();
+list.set(2,20);
+list.insert(2,11);
 list.traverse();
-list.get(0);
-// console.log(list);
+list.remove(3);
+list.traverse();
+console.log(list);
